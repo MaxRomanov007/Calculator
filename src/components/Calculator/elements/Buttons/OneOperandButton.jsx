@@ -1,5 +1,4 @@
-import React from 'react';
-import {exponentialPrecision, maxPrecision} from "../../../../constants/constants.js";
+
 import {
     formatNumber,
     toExponentialIfLong
@@ -19,7 +18,18 @@ const OneOperandButton = (
         setExpression,
         setDisplayNumber,
         lastAction,
+        setLastAction
     }) => {
+
+    const errorMessage = () => {
+        setExpression("");
+        setDisplayNumber("0");
+        setLeft("0");
+        setRight("0");
+        setLastOperator("");
+        setLastAction(() => () => {});
+        alert("Ошибка!");
+    }
 
     const setLeftOperand = (value) => {
         setLeft(value);
@@ -40,7 +50,12 @@ const OneOperandButton = (
             setRight("0");
         }
         restartExpression(value);
-        setLeftOperand(callback(Number(value)));
+        const result = callback(Number(value));
+        if (!isFinite(result)) {
+            errorMessage();
+            return;
+        }
+        setLeftOperand(result);
     }
 
     return (

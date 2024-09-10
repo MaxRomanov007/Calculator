@@ -1,8 +1,6 @@
-import React from 'react';
 import Display from "./elements/Display.jsx";
 import Numpad from "./elements/Numpad.jsx";
-import {useRef, useState} from "preact/hooks";
-import {maxCharactersCount} from "../../constants/constants.js";
+import {useState} from "preact/hooks";
 
 const Calculator = () => {
     const [expression, setExpression] = useState("");
@@ -34,12 +32,6 @@ const Calculator = () => {
             type: "clearAll",
         },
         {
-            icon: "√",
-            text: "√",
-            type: "oneOperand",
-            callback: a => Math.sqrt(a),
-        },
-        {
             icon: "n!",
             text: "fact",
             type: "oneOperand",
@@ -52,15 +44,28 @@ const Calculator = () => {
         },
         {
             icon: "√",
-            text: "√",
             type: "oneOperand",
             callback: a => Math.sqrt(a),
         },
         {
+            icon: "log10",
+            type: "oneOperand",
+            callback: a => Math.log10(a),
+        },
+        {
             icon: "ln",
-            text: "ln",
             type: "oneOperand",
             callback: a => Math.log(a),
+        },
+        {
+            icon: "/",
+            type: "twoOperand",
+            callback: (a, b) => a / b,
+        },
+        {
+            icon: "sin",
+            type: "oneOperand",
+            callback: a => Math.sin(a),
         },
         {
             icon: "7",
@@ -75,17 +80,26 @@ const Calculator = () => {
             type: "number",
         },
         {
-            type: "zero",
-        },
-        {
             icon: "*",
             type: "twoOperand",
             callback: (a, b) => a * b,
         },
         {
-            icon: "+",
-            type: "twoOperand",
-            callback: (a, b) => a + b,
+            icon: "cos",
+            type: "oneOperand",
+            callback: a => Math.cos(a),
+        },
+        {
+            icon: "4",
+            type: "number",
+        },
+        {
+            icon: "5",
+            type: "number",
+        },
+        {
+            icon: "6",
+            type: "number",
         },
         {
             icon: "-",
@@ -93,18 +107,43 @@ const Calculator = () => {
             callback: (a, b) => a - b,
         },
         {
-            icon: "/",
-            type: "twoOperand",
-            callback: (a, b) => a / b,
+            icon: "tg",
+            type: "oneOperand",
+            callback: a => Math.tan(a),
         },
         {
-            type: "equal",
+            icon: "1",
+            type: "number",
+        },
+        {
+            icon: "2",
+            type: "number",
+        },
+        {
+            icon: "3",
+            type: "number",
+        },
+        {
+            icon: "+",
+            type: "twoOperand",
+            callback: (a, b) => a + b,
+        },
+        {
+            icon: "ctg",
+            type: "oneOperand",
+            callback: a => 1 / Math.tan(a),
         },
         {
             type: "negative",
         },
         {
+            type: "zero",
+        },
+        {
             type: "dot",
+        },
+        {
+            type: "equal",
         }
     ];
 
