@@ -1,0 +1,82 @@
+.calculator {
+  width: clamp(360px, 30vw, 450px);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-gray);
+
+  &__display {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__result {
+    @include fluid-text(18, 16);
+    color: var(--color-dark);
+  }
+
+  &__expression {
+    @include fluid-text(14, 12);
+
+    height: 1em;
+    color: var(--color-gray);
+  }
+
+  &__numpad {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(60px, 1fr));
+    gap: 5px;
+  }
+
+  &__button {
+    border-radius: var(--border-radius-small);
+
+    @include hover{
+      background-color: var(--color-accent);
+    }
+
+    &--number {
+      background-color: #40c89f;
+    }
+
+    &--zero {
+      background-color: #40c89f;
+    }
+
+    &--clear-all {
+      background-color: #e83f3f;
+    }
+
+    &--clear {
+      background-color: #f16e3b;
+    }
+
+    &--one-operand {
+      background-color: #5e3bf3;
+    }
+
+    &--two-operand {
+      background-color: #9d4ce8;
+    }
+
+    &--equal {
+      background-color: #32cd36;
+    }
+
+    &--negative {
+      background-color: #e848bb;
+    }
+
+    &--dot {
+      background-color: #329a7b;
+    }
+  }
+}
