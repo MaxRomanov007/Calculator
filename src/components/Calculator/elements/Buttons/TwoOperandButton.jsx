@@ -47,9 +47,6 @@ const TwoOperandButton = (
     }
 
     const twoOperandButtonClick = () => {
-        if (left === "0") {
-            return;
-        }
         let result = left;
         if (lastOperator !== "" && right !== "0") {
             result = lastAction(left, right);

@@ -1,4 +1,3 @@
-import React from "react";
 import {maxCharactersCount} from "../../../../constants/constants.js";
 
 const NumberButton = (
@@ -10,6 +9,7 @@ const NumberButton = (
         setLeft,
         setRight,
         lastOperator,
+        setLastOperator,
         setDisplayNumber,
         isPrevEqual,
         setIsPrevEqual,
@@ -35,8 +35,9 @@ const NumberButton = (
                 return;
             }
             if (left === "0" || isPrevEqual) {
-                setLeftOperand(text)
+                setLeftOperand(text);
                 setIsPrevEqual(false);
+                setLastOperator("");
                 return;
             }
             setLeftOperand(left.toString().concat(text));

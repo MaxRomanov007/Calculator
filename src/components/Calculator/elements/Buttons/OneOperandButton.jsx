@@ -40,9 +40,6 @@ const OneOperandButton = (
     }
 
     const oneOperandButtonClick = () => {
-        if (left === "0") {
-            return;
-        }
         setLastOperator(text);
         let value = left;
         if(lastOperator !== "" && right !== "0") {

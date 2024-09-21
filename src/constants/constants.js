@@ -1,3 +1,3 @@
-export const maxCharactersCount = 8;
-export const maxPrecision = 8;
+export const maxCharactersCount = 15;
+export const maxPrecision = 10;
 export const exponentialPrecision = 5;
